@@ -16,6 +16,11 @@ function Register() {
         draggable: true,
         theme: "dark",
       };
+      useEffect(() => {
+        if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
+          navigate("/");
+        }
+      }, []);
     const [values, setValues] = useState({
         username: "",
         email: "",

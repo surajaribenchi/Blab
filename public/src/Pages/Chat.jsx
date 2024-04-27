@@ -5,6 +5,7 @@ import { allUsersRoute} from "../utils/APIRoutes";
 import styled from "styled-components";
 import Contacts from "../components/Contact";
 import Welcome from "../components/Welcome";
+import ChatContainer from "../components/ChatContainer";
 
 
  function Chat() {
@@ -47,7 +48,10 @@ import Welcome from "../components/Welcome";
       <Container>
         <div className="container">
          <Contacts contacts={contacts} currentUser={currentUser} changeChat={handleChatChange}/>
-         <Welcome/>
+         {
+          currentChat === undefined? (<Welcome/>) : (<ChatContainer currentChat={currentChat} currentUser={currentUser}/>)
+         }
+         
        </div>
       </Container>
   );
